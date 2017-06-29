@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :carros
   resources :produtos
   resources :students
-  resources :clients
   resources :people
   resources :books
   root 'application#hello'
