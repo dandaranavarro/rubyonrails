@@ -1,0 +1,8 @@
+{
+  "name": "exemplo-aula-1",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "selenium-webdriver": "^3.4.0"
+  }
+}
