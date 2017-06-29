@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe ClientsController, type: :controller do
+RSpec.describe ClientesController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # Client. As you add validations to Client, be sure to
+  # Cliente. As you add validations to Cliente, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe ClientsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # ClientsController. Be sure to keep this updated too.
+  # ClientesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      client = Client.create! valid_attributes
+      cliente = Cliente.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -51,8 +51,8 @@ RSpec.describe ClientsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      client = Client.create! valid_attributes
-      get :show, params: {id: client.to_param}, session: valid_session
+      cliente = Cliente.create! valid_attributes
+      get :show, params: {id: cliente.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
@@ -66,29 +66,29 @@ RSpec.describe ClientsController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      client = Client.create! valid_attributes
-      get :edit, params: {id: client.to_param}, session: valid_session
+      cliente = Cliente.create! valid_attributes
+      get :edit, params: {id: cliente.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Client" do
+      it "creates a new Cliente" do
         expect {
-          post :create, params: {client: valid_attributes}, session: valid_session
-        }.to change(Client, :count).by(1)
+          post :create, params: {cliente: valid_attributes}, session: valid_session
+        }.to change(Cliente, :count).by(1)
       end
 
-      it "redirects to the created client" do
-        post :create, params: {client: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Client.last)
+      it "redirects to the created cliente" do
+        post :create, params: {cliente: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(Cliente.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {client: invalid_attributes}, session: valid_session
+        post :create, params: {cliente: invalid_attributes}, session: valid_session
         expect(response).to be_success
       end
     end
@@ -100,41 +100,41 @@ RSpec.describe ClientsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested client" do
-        client = Client.create! valid_attributes
-        put :update, params: {id: client.to_param, client: new_attributes}, session: valid_session
-        client.reload
+      it "updates the requested cliente" do
+        cliente = Cliente.create! valid_attributes
+        put :update, params: {id: cliente.to_param, cliente: new_attributes}, session: valid_session
+        cliente.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the client" do
-        client = Client.create! valid_attributes
-        put :update, params: {id: client.to_param, client: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(client)
+      it "redirects to the cliente" do
+        cliente = Cliente.create! valid_attributes
+        put :update, params: {id: cliente.to_param, cliente: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(cliente)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        client = Client.create! valid_attributes
-        put :update, params: {id: client.to_param, client: invalid_attributes}, session: valid_session
+        cliente = Cliente.create! valid_attributes
+        put :update, params: {id: cliente.to_param, cliente: invalid_attributes}, session: valid_session
         expect(response).to be_success
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested client" do
-      client = Client.create! valid_attributes
+    it "destroys the requested cliente" do
+      cliente = Cliente.create! valid_attributes
       expect {
-        delete :destroy, params: {id: client.to_param}, session: valid_session
-      }.to change(Client, :count).by(-1)
+        delete :destroy, params: {id: cliente.to_param}, session: valid_session
+      }.to change(Cliente, :count).by(-1)
     end
 
-    it "redirects to the clients list" do
-      client = Client.create! valid_attributes
-      delete :destroy, params: {id: client.to_param}, session: valid_session
-      expect(response).to redirect_to(clients_url)
+    it "redirects to the clientes list" do
+      cliente = Cliente.create! valid_attributes
+      delete :destroy, params: {id: cliente.to_param}, session: valid_session
+      expect(response).to redirect_to(clientes_url)
     end
   end
 
